@@ -236,6 +236,8 @@ __llm_cli_load_backend() {
     fi
     if [[ -n "${__LLM_CLI_BACKENDS_TAG[$name]:-}" ]]; then
       is_override=1
+    else
+      __LLM_CLI_BACKENDS_USER_SEEN[$name]=1
     fi
   fi
 
@@ -260,7 +262,6 @@ __llm_cli_load_backend() {
     __LLM_CLI_BACKENDS_ARGS[$name]="$args_joined"
     __LLM_CLI_BACKENDS_USE_SD[$name]="$use_sd"
     __LLM_CLI_BACKENDS_PREFIX_ACTIVE[$name]=0
-    __LLM_CLI_BACKENDS_USER_SEEN[$name]=1
     __LLM_CLI_BACKEND_ORDER+=("$name")
   fi
 
