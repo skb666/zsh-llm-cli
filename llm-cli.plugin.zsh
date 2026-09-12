@@ -394,7 +394,7 @@ __llm_cli_dispatch() {
       argv+=("${ws_parts[@]}")
     done
   fi
-  argv+=("\"${(j: :)prompt_arr[@]}\"")
+  argv+=("${(j: :)prompt_arr[@]}")
 
   local use_sd_setting="${__LLM_CLI_BACKENDS_USE_SD[$backend]:-auto}"
   local use_sd=0
